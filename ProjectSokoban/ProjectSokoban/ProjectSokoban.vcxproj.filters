@@ -13,18 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\framework">
+      <UniqueIdentifier>{fa2ede7d-e24d-4152-a8b5-7926e0c20cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Main">
+      <UniqueIdentifier>{28ac58f3-b863-4b73-bb22-bde8b0b90aaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="framework\Game.h">
+      <Filter>소스 파일\framework</Filter>
+    </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="framework\Renderer.h">
+      <Filter>소스 파일\framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.c">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="framework\Game.c">
+      <Filter>소스 파일\framework</Filter>
     </ClCompile>
     <ClCompile Include="main.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.c">
+      <Filter>소스 파일\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\Renderer.c">
+      <Filter>소스 파일\framework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
