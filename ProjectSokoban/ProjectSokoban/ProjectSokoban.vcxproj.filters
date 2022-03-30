@@ -30,6 +30,9 @@
     <ClInclude Include="framework\Renderer.h">
       <Filter>소스 파일\framework</Filter>
     </ClInclude>
+    <ClInclude Include="framework\input.h">
+      <Filter>소스 파일\framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="framework\Game.c">
@@ -42,6 +45,9 @@
       <Filter>소스 파일\Main</Filter>
     </ClCompile>
     <ClCompile Include="framework\Renderer.c">
+      <Filter>소스 파일\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="framework\input.c">
       <Filter>소스 파일\framework</Filter>
     </ClCompile>
   </ItemGroup>

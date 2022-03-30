@@ -143,11 +143,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework\Game.h" />
+    <ClInclude Include="framework\input.h" />
     <ClInclude Include="framework\Renderer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="framework\Game.c" />
+    <ClCompile Include="framework\input.c" />
     <ClCompile Include="framework\Renderer.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="stdafx.c">
