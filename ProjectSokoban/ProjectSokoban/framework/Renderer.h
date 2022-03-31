@@ -12,5 +12,4 @@ bool InitializeRenderer();
 /// <returns> </returns>
 void RenderMap();
 
-void setKeyMessage(int keyCode);
-
+void setMessage(const char message[24]);

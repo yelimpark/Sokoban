@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Renderer.h"
 #include "input.h"
+#include "Time.h"
 
 bool Initialize() {
 	if (false == InitializeRenderer())
@@ -13,19 +14,17 @@ void processInput() {
 	UpdateInput();
 }
 
+static float sum = 0;
+
 void update() {
-	if (GetButton(W)) {
-		setKeyMessage(W);
+	// 0.5초 간격으로 특정 메세지 깜박이기
+	float timeSpace = 2;
+	sum += GetDeltaTime();
+	if (sum > timeSpace) {
+		sum = 0;
+		setMessage("짜잔");
 	}
-	else if (GetButton(D)) {
-		setKeyMessage(D);
-	}
-	else if (GetButton(S)) {
-		setKeyMessage(S);
-	}
-	else if (GetButton(A)) {
-		setKeyMessage(A);
-	}
+	//Sleep(1);
 }
 
 void render() {
@@ -35,11 +34,9 @@ void render() {
 int32_t Run() {
 	while (true)
 	{
-		// 입력 처리
+		UpdateTimer();
 		processInput();
-		// 업데이트
 		update();
-		// 렌더링
 		render();
 	}
 

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Renderer.h";
+#include "Timer.h";
 
 #define MAP_SIZE 24
 
@@ -38,7 +39,7 @@ void RenderMap() {
 	clear();
 }
 
-void setKeyMessage(int keyCode)
+void setMessage(const char message[24])
 {
-	sprintf_s(s_map[0], sizeof(s_map[0]), "%c°¡ ´­¸²", keyCode);
+	strcpy_s(s_map[0], MAP_SIZE, message);
 }
