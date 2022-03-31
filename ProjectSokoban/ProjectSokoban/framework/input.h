@@ -1,17 +1,17 @@
 #include <stdbool.h>
 
 typedef enum KeyCode {
-	W = 'w',
-	A = 'a',
-	S = 's',
-	D = 'd'
+	W = 'W',
+	A = 'A',
+	S = 'S',
+	D = 'D'
 } EKeyCode;
 
 void UpdateInput();
 
-bool GetButtonDowm(EKeyCode KeyCode);
+bool GetButtonDown(EKeyCode keyCode);
 
-bool GetButtonUp(EKeyCode KeyCode);
+bool GetButtonUp(EKeyCode keyCode);
 
-bool GetButton(EKeyCode KeyCode);
+bool GetButton(EKeyCode keyCode);
 
