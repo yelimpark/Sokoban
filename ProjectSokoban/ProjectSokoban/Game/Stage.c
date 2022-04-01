@@ -87,7 +87,8 @@ void UpdatePos(int x, int y) {
 }
 
 void Move(int x, int y) {
-	if (s_map[s_playerY + y][s_playerX + x] == MAPTYPE_WALL) {
+	if (s_map[s_playerY + y][s_playerX + x] == MAPTYPE_WALL || 
+		s_map[s_playerY + y][s_playerX + x] == MAPTYPE_GOAL) {
 		return;
 	}
 

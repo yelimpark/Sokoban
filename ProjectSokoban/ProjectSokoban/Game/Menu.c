@@ -22,7 +22,7 @@ void LoadStageMenu()
 			{
 				break;
 			}
-			else if (ch == '¢¸') {
+			else if (ch == '*') {
 				cursorX = j;
 				cursorY = i;
 			}
@@ -45,9 +45,12 @@ const char** GetStageMenu()
 }
 
 void MoveCursor(int x, int y) {
+	if (s_menu[cursorY + y][cursorX] == '#')
+		return;
+
 	s_menu[cursorY][cursorX] = ' ';
 	cursorY += y;
-	s_menu[cursorY][cursorX] = '¢¸';
+	s_menu[cursorY][cursorX] = '*';
 }
 
 bool UpdateStageMenu(EStageLevel* stage)
@@ -65,7 +68,7 @@ bool UpdateStageMenu(EStageLevel* stage)
 		
 	}
 	else if (GetButtonDown(SPACE) || GetButtonDown(ENTER)) {
-		stage = cursorY * (cursorX + 1);
+		*stage = cursorY;
 		return true;
 	}
 	return false;

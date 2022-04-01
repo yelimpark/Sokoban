@@ -33,8 +33,10 @@ void update() {
 			gameStatus = MENU;
 	}
 	else if (gameStatus == MENU) {
-		if (UpdateStageMenu(&gameStatus))
+		if (UpdateStageMenu(&gameStage)) {
+			LoadStage(gameStage);
 			gameStatus = STAGE;
+		}
 	}
 	else
 		UpdateStage();
