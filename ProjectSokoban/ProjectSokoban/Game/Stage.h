@@ -30,7 +30,7 @@ void LoadStage(EStageLevel level);
 /// <summary>
 /// 스테이지를 업데이트한다.
 /// </summary>
-void UpdateStage();
+bool UpdateStage();
 
 
 ///<summary>

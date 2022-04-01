@@ -38,8 +38,12 @@ void update() {
 			gameStatus = STAGE;
 		}
 	}
-	else
-		UpdateStage();
+	else {
+		if (UpdateStage()) {
+			clearStage();
+			gameStatus = MENU;
+		}
+	}
 }
 
 void render() {
@@ -60,6 +64,7 @@ int32_t Run() {
 			if (gameStage == STAGE_MAX) {
 				break;
 			}
+
 			LoadStage(gameStage);
 		}
 	}

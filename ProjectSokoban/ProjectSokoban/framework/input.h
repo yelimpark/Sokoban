@@ -6,7 +6,8 @@ typedef enum KeyCode {
 	S = 'S',
 	D = 'D',
 	SPACE = ' ',
-	ENTER = '\n'
+	ENTER = '\n',
+	ESC = 27
 } EKeyCode;
 
 void UpdateInput();

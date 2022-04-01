@@ -110,7 +110,7 @@ void Move(int x, int y) {
 	}
 }
 
-void UpdateStage()
+bool UpdateStage()
 {
 	if (GetButtonDown(W)) {
 		Move(0, -1);
@@ -124,6 +124,10 @@ void UpdateStage()
 	else if (GetButtonDown(A)) {
 		Move(-1, 0);
 	}
+	else if (GetButtonDown(ESC)) {
+		return true;
+	}
+	return false;
 }
 
 bool IsClear() {
