@@ -14,4 +14,3 @@ bool Initialize();
 /// </summary>
 /// <returns> 정상적으로 종료 됐다면 0 </returns>
 int32_t Run();
-

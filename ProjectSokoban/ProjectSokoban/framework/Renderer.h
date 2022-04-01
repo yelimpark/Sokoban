@@ -10,5 +10,4 @@ bool InitializeRenderer();
 /// 맵을 그린다.
 /// </summary>
 /// <returns> </returns>
-void RenderMap();
-
+void RenderMap(EGameStatus gameStatus);

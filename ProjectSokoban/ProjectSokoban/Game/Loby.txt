@@ -1,0 +1,8 @@
+###############
+#   WELCOME   #
+#   SOCOBAN   #
+#             #
+#    press    #
+#  space bar  #
+#  to start   #
+###############

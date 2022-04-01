@@ -145,12 +145,21 @@
     <ClInclude Include="framework\Game.h" />
     <ClInclude Include="framework\input.h" />
     <ClInclude Include="framework\Renderer.h" />
+    <ClInclude Include="framework\Timer.h" />
+    <ClInclude Include="Game\Loby.h" />
+    <ClInclude Include="Game\Menu.h" />
+    <ClInclude Include="Game\Stage.h" />
+    <ClInclude Include="Macro.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="framework\Game.c" />
     <ClCompile Include="framework\input.c" />
     <ClCompile Include="framework\Renderer.c" />
+    <ClCompile Include="framework\Timer.c" />
+    <ClCompile Include="Game\Loby.c" />
+    <ClCompile Include="Game\Menu.c" />
+    <ClCompile Include="Game\Stage.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="stdafx.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
