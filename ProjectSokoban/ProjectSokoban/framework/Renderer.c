@@ -2,6 +2,7 @@
 #include "Renderer.h";
 #include "Game/Stage.h"
 #include "Game/Loby.h"
+#include "Game/Menu.h"
 
 static char s_map[MAP_SIZE][MAP_SIZE];
 static HANDLE s_consolHandle;
@@ -37,7 +38,7 @@ void RenderMap(EGameStatus gameStatus) {
 		screen = GetLoby();
 	}
 	else if (gameStatus == MENU) {
-
+		screen = GetStageMenu();
 	}
 	else {
 		screen = GetMap();

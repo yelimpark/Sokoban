@@ -48,6 +48,9 @@
     <ClInclude Include="Game\Loby.h">
       <Filter>소스 파일\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Menu.h">
+      <Filter>소스 파일\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="framework\Game.c">
@@ -72,6 +75,9 @@
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Loby.c">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Menu.c">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
   </ItemGroup>

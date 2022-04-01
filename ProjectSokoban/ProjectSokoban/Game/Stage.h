@@ -16,6 +16,9 @@ typedef enum StageLevel
 {
 	STAGE_01 = 1,
 	STAGE_02,
+	STAGE_03,
+	STAGE_04,
+	STAGE_05,
 	STAGE_MAX
 } EStageLevel;
 

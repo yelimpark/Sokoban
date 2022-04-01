@@ -4,8 +4,11 @@
 #include "input.h"
 #include "Time.h"
 #include "Game/Stage.h"
+#include "Game/Loby.h"
+#include "Game/Menu.h"
 
 static EGameStatus gameStatus = LOBY;
+static EStageLevel gameStage = STAGE_01;
 
 bool Initialize() {
 	if (false == InitializeRenderer())
@@ -14,7 +17,8 @@ bool Initialize() {
 	InitializeTimer();
 
 	LoadLoby();
-	LoadStage(STAGE_01);
+	LoadStageMenu();
+	LoadStage(gameStage);
 
 	return true;
 }
@@ -26,10 +30,12 @@ void processInput() {
 void update() {
 	if (gameStatus == LOBY) {
 		if (UpdateLoby())
+			gameStatus = MENU;
+	}
+	else if (gameStatus == MENU) {
+		if (UpdateStageMenu(&gameStatus))
 			gameStatus = STAGE;
 	}
-	else if (gameStatus == MENU)
-		gameStatus = STAGE;
 	else
 		UpdateStage();
 }
@@ -47,8 +53,12 @@ int32_t Run() {
 		render();
 		if (IsClear() == true) {
 			clearStage();
-			LoadStage(STAGE_01);
-			gameStatus = LOBY;
+
+			gameStage++;
+			if (gameStage == STAGE_MAX) {
+				break;
+			}
+			LoadStage(gameStage);
 		}
 	}
 
