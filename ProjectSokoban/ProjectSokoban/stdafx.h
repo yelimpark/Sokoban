@@ -12,3 +12,5 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <Windows.h>
+
+#include "Macro.h"

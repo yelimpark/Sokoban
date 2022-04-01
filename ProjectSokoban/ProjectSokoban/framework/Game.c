@@ -3,10 +3,19 @@
 #include "Renderer.h"
 #include "input.h"
 #include "Time.h"
+#include "Game/Stage.h"
+
+static EGameStatus gameStatus = LOBY;
 
 bool Initialize() {
 	if (false == InitializeRenderer())
 		return false;
+
+	InitializeTimer();
+
+	LoadLoby();
+	LoadStage(STAGE_01);
+
 	return true;
 }
 
@@ -14,21 +23,19 @@ void processInput() {
 	UpdateInput();
 }
 
-static float sum = 0;
-
 void update() {
-	// 0.5초 간격으로 특정 메세지 깜박이기
-	float timeSpace = 2;
-	sum += GetDeltaTime();
-	if (sum > timeSpace) {
-		sum = 0;
-		setMessage("짜잔");
+	if (gameStatus == LOBY) {
+		if (UpdateLoby())
+			gameStatus = STAGE;
 	}
-	//Sleep(1);
+	else if (gameStatus == MENU)
+		gameStatus = STAGE;
+	else
+		UpdateStage();
 }
 
 void render() {
-	RenderMap();
+	RenderMap(gameStatus);
 }
 
 int32_t Run() {
@@ -38,6 +45,11 @@ int32_t Run() {
 		processInput();
 		update();
 		render();
+		if (IsClear() == true) {
+			clearStage();
+			LoadStage(STAGE_01);
+			gameStatus = LOBY;
+		}
 	}
 
 	return 0;

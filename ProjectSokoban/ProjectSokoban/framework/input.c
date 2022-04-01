@@ -17,7 +17,7 @@ void UpdateInput()
 {
 	memcpy(s_prevKeyStates, s_currentKeyStates, sizeof(s_prevKeyStates));
 
-	for (int32_t keyCode = 0; keyCode < 255; keyCode++) {
+	for (int32_t keyCode = 0; keyCode < 256; keyCode++) {
 		if (isKeyDown(keyCode)) {
 			s_currentKeyStates[keyCode] = true;
 		}

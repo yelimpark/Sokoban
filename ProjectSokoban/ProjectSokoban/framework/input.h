@@ -4,7 +4,9 @@ typedef enum KeyCode {
 	W = 'W',
 	A = 'A',
 	S = 'S',
-	D = 'D'
+	D = 'D',
+	SPACE = ' ',
+	ENTER = '\n'
 } EKeyCode;
 
 void UpdateInput();

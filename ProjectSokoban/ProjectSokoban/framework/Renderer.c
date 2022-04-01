@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "Renderer.h";
-#include "Timer.h";
-
-#define MAP_SIZE 24
+#include "Game/Stage.h"
+#include "Game/Loby.h"
 
 static char s_map[MAP_SIZE][MAP_SIZE];
 static HANDLE s_consolHandle;
@@ -25,21 +24,30 @@ bool InitializeRenderer() {
 	return true;
 }
 
-void RenderMap() {
+void RenderMap(EGameStatus gameStatus) {
 	const static COORD initialPos = { 0, 0 };
 	const static CONSOLE_CURSOR_INFO info = { 100, false };
 
 	SetConsoleCursorPosition(s_consolHandle, initialPos);
 	SetConsoleCursorInfo(s_consolHandle, &info);
 
+	const char** screen = {""};
+
+	if (gameStatus == LOBY) {
+		screen = GetLoby();
+	}
+	else if (gameStatus == MENU) {
+
+	}
+	else {
+		screen = GetMap();
+	}
+	memcpy(s_map, screen, sizeof(s_map));
+
+
 	for (size_t i = 0; i < MAP_SIZE; i++) {
 		puts(s_map[i]);
 	}
 
 	clear();
-}
-
-void setMessage(const char message[24])
-{
-	strcpy_s(s_map[0], MAP_SIZE, message);
 }
