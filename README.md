@@ -4,8 +4,8 @@ move the box to goal!
 
 ## In game play
 ### Loby
-<img src="img/main.png" width="60%"></img>
+<img src="img/loby.PNG" width="60%"></img>
 ### Menu
-<img src="img/menu.png" width="60%"></img>
+<img src="img/menu.PNG" width="60%"></img>
 ### Stage
-<img src="img/stage.png" width="60%"></img>
+<img src="img/stage.PNG" width="60%"></img>
