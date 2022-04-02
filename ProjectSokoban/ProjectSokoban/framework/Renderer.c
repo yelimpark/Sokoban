@@ -45,7 +45,6 @@ void RenderMap(EGameStatus gameStatus) {
 	}
 	memcpy(s_map, screen, sizeof(s_map));
 
-
 	for (size_t i = 0; i < MAP_SIZE; i++) {
 		puts(s_map[i]);
 	}
