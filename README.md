@@ -3,8 +3,8 @@
 <img src="img/loby.PNG">
 <strong>move 📦 to 🕳️!!!</strong>
 
-In game play
-============
+## In game play
+
 <center>
   <table>
     <tr>

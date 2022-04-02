@@ -7,6 +7,7 @@ static int32_t s_goalCount = 0;
 static int32_t s_boxOnGoalCount = 0;
 static int32_t s_playerX = 0;
 static int32_t s_playerY = 0;
+static char s_plyerOnWhat = MAPTYPE_PATH;
 
 bool parseMapType(int i, int j, char mapType)
 {
@@ -80,50 +81,64 @@ void LoadStage(EStageLevel level)
 }
 
 void UpdatePos(int x, int y) {
-	s_map[s_playerY][s_playerX] = MAPTYPE_PATH;
+	s_map[s_playerY][s_playerX] = s_plyerOnWhat;
 	s_playerX += x;
 	s_playerY += y;
+	if (s_map[s_playerY][s_playerX] == MAPTYPE_BOX) {
+		s_plyerOnWhat = MAPTYPE_PATH;
+	}
+	else if (s_map[s_playerY][s_playerX] == MAPTYPE_BOX_ON_GOAL) {
+		s_plyerOnWhat = MAPTYPE_GOAL;
+	}
+	else {
+		s_plyerOnWhat = s_map[s_playerY][s_playerX];
+	}
 	s_map[s_playerY][s_playerX] = MAPTYPE_PLAYER;
 }
 
-void Move(int x, int y) {
-	if (s_map[s_playerY + y][s_playerX + x] == MAPTYPE_WALL || 
-		s_map[s_playerY + y][s_playerX + x] == MAPTYPE_GOAL ||
-		s_map[s_playerY + y][s_playerX + x] == MAPTYPE_BOX_ON_GOAL) {
-		return;
-	}
+bool Move(int x, int y, int distance) {
+	char nextPos = s_map[s_playerY + (y * distance)][s_playerX + (x * distance)];
 
-	if (s_map[s_playerY + y][s_playerX + x] == MAPTYPE_BOX) {
-		if (s_map[s_playerY + y*2][s_playerX + x*2] != MAPTYPE_WALL) {
-			s_map[s_playerY + y][s_playerX + x] = MAPTYPE_PATH;
-			if (s_map[s_playerY + y*2][s_playerX + x*2] == MAPTYPE_GOAL) {
-				s_map[s_playerY + y*2][s_playerX + x*2] = MAPTYPE_BOX_ON_GOAL;
-				s_boxOnGoalCount++;
-			}
-			else {
-				s_map[s_playerY + y*2][s_playerX + x*2] = MAPTYPE_BOX;
-			}
-			UpdatePos(x, y);
+	switch (nextPos)
+	{
+	case MAPTYPE_WALL :
+		return false;
+
+	case MAPTYPE_BOX_ON_GOAL:
+	case MAPTYPE_BOX:
+		distance++;
+		return Move(x, y, distance);
+
+	case MAPTYPE_GOAL:
+		if (distance != 1) {
+			s_map[s_playerY + (y * (distance))][s_playerX + (x * (distance))] = MAPTYPE_BOX_ON_GOAL;
+			distance--;
+			s_boxOnGoalCount++;
 		}
-	}
-	else {
+
+	default:
 		UpdatePos(x, y);
+		for (int i = 1; i < distance; i++) {
+			if (s_map[s_playerY + (y * i)][s_playerX + (x * i)] != MAPTYPE_BOX_ON_GOAL)
+				s_map[s_playerY + (y * i)][s_playerX + (x * i)] = MAPTYPE_BOX;
+		}
+		return true;
 	}
 }
 
 bool UpdateStage()
 {
 	if (GetButtonDown(W)) {
-		Move(0, -1);
+		Move(0, -1, 1);
 	}
 	else if (GetButtonDown(D)) {
-		Move(1, 0);
+		Move(1, 0, 1);
 	}
 	else if (GetButtonDown(S)) {
-		Move(0, 1);
+		Move(0, 1, 1);
 	}
 	else if (GetButtonDown(A)) {
-		Move(-1, 0);
+		Move(-1, 0, 1);
 	}
 	else if (GetButtonDown(ESC)) {
 		return true;
