@@ -1,11 +1,19 @@
 # Sokoban
-콘솔로 만든 간단한 게임 </br>
-move the box to goal!
 
-## In game play
-### Loby
-<img src="img/loby.PNG" width="60%"></img>
-### Menu
-<img src="img/menu.PNG" width="60%"></img>
-### Stage
-<img src="img/stage.PNG" width="60%"></img>
+<img src="img/loby.PNG">
+<strong>move 📦 to 🕳️!!!</strong>
+
+In game play
+============
+<center>
+  <table>
+    <tr>
+      <td><img src="img/menu.PNG" alt="menu ui"></td>
+      <td><img src="img/stage.PNG" alt="stage ui"></td>
+    </tr>
+  </table>
+</center>
+
+----
+
+in 2022 KGA mobile game class
