@@ -89,6 +89,7 @@ void UpdatePos(int x, int y) {
 	}
 	else if (s_map[s_playerY][s_playerX] == MAPTYPE_BOX_ON_GOAL) {
 		s_plyerOnWhat = MAPTYPE_GOAL;
+		s_boxOnGoalCount--;
 	}
 	else {
 		s_plyerOnWhat = s_map[s_playerY][s_playerX];
