@@ -6,5 +6,6 @@ typedef enum GameStatus
 {
 	LOBY = 'L',
 	MENU = 'M',
-	STAGE = 'S'
+	STAGE = 'S',
+	END = 'E'
 } EGameStatus;

@@ -147,7 +147,7 @@ bool UpdateStage()
 }
 
 bool IsClear() {
-	if (s_boxOnGoalCount == s_goalCount) {
+	if (s_boxOnGoalCount == s_goalCount && s_boxOnGoalCount > 0) {
 		return true;
 	}
 	return false;
