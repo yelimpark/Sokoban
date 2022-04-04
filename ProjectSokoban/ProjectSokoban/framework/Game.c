@@ -6,9 +6,11 @@
 #include "Game/Stage.h"
 #include "Game/Loby.h"
 #include "Game/Menu.h"
+#include "Game/Ending.h"
 
 static EGameStatus gameStatus = LOBY;
 static EStageLevel gameStage = STAGE_01;
+static bool isExit = false;
 
 bool Initialize() {
 	if (false == InitializeRenderer())
@@ -18,6 +20,7 @@ bool Initialize() {
 
 	LoadLoby();
 	LoadStageMenu();
+	LoadGameEnd();
 	LoadStage(gameStage);
 
 	return true;
@@ -38,6 +41,10 @@ void update() {
 			gameStatus = STAGE;
 		}
 	}
+	else if (gameStatus == END) {
+		if (UpdateGameEnd())
+			isExit = true;
+	}
 	else {
 		if (UpdateStage()) {
 			clearStage();
@@ -57,15 +64,18 @@ int32_t Run() {
 		processInput();
 		update();
 		render();
+		if (isExit) break;
+		
 		if (IsClear() == true) {
 			clearStage();
 
 			gameStage++;
 			if (gameStage == STAGE_MAX) {
-				break;
+				gameStatus = END;
 			}
-
-			LoadStage(gameStage);
+			else {
+				LoadStage(gameStage);
+			}
 		}
 	}
 
