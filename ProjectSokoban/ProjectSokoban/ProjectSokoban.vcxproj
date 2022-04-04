@@ -146,6 +146,7 @@
     <ClInclude Include="framework\input.h" />
     <ClInclude Include="framework\Renderer.h" />
     <ClInclude Include="framework\Timer.h" />
+    <ClInclude Include="Game\Ending.h" />
     <ClInclude Include="Game\Loby.h" />
     <ClInclude Include="Game\Menu.h" />
     <ClInclude Include="Game\Stage.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="framework\input.c" />
     <ClCompile Include="framework\Renderer.c" />
     <ClCompile Include="framework\Timer.c" />
+    <ClCompile Include="Game\Ending.c" />
     <ClCompile Include="Game\Loby.c" />
     <ClCompile Include="Game\Menu.c" />
     <ClCompile Include="Game\Stage.c" />
